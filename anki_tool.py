@@ -4,6 +4,8 @@ import sys
 import os
 import os.path
 import sqlite3
+
+# 正規表現ライブラリ
 import re
 import json
 import time
@@ -71,6 +73,7 @@ def rename_tags(conn, tags, remove=False):
         dst = None
         srcs = tags
 
+    # 「コレクション」？を得る
     row = conn.execute("select * from col where id=1").fetchone()
     if not row:
         print("Couldn't read collection.")
